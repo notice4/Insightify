@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Insightify</title>
+    <link rel="stylesheet" href="../frontend/css/reset.css">
+    <link rel="stylesheet" href="../frontend/css/styles.css">
+    <link rel="stylesheet" href="../frontend/js/script.js">
+</head>
+<body>
+    <div class="container">
+        <h1>Insightify</h1>
+        <form id="uploadForm">
+            <input type="file" id="csvFile" required>
+            <input type="text" id="target" placeholder="Target column name" required>
+            <button type="submit">Analyze</button>
+        </form>
+        <pre id="result"></pre>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
