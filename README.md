@@ -1,2 +1,3 @@
 # Insightify
-Transforms data into insights
+
+Transforms data into insights /
