@@ -1,39 +1,88 @@
 body {
-    font-family: Arial, sans-serif;
-    background: #f4f4f4;
+    font-family: 'Arial', sans-serif;
+    background: #f0f2f5;
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
-    padding-top: 50px;
+    padding: 50px 20px 20px 20px;
 }
 
 .container {
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    background: #ffffff;
+    padding: 30px 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     max-width: 900px;
-    width: 90%;
-    border: 1px solid red;
+    width: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e0e0e0;
+}
+
+.container:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
 }
 
 h1 {
     text-align: center;
+    color: #333;
+    margin-bottom: 20px;
 }
 
 form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
+}
+
+input, textarea, select, button {
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #0056b3;
 }
 
 pre {
-    margin-top: 20px;
-    background: #f9f9f9;
-    padding: 10px;
-    border-radius: 5px;
-    font-family: monospace;
+    margin-top: 25px;
+    background: #f7f9fc;
+    padding: 15px;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
     white-space: pre-wrap;
+    word-wrap: break-word;
+    border: 1px solid #e1e4e8;
+    overflow-x: auto;
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px 15px;
+    }
+
+    input, textarea, select, button {
+        font-size: 14px;
+    }
 }
