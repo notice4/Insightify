@@ -1,8 +1,9 @@
-from fastapi import FastAPI, File, UploadFile
+import os
+from fastapi import FastAPI, File, UploadFile, Form
 from fastapi.middleware.cors import CORSMiddleware
 import pandas as pd
-# from starlette.responses import FileResponse
-# from starlette.staticfiles import StaticFiles
+from starlette.responses import FileResponse
+from starlette.staticfiles import StaticFiles
 from ml import run_pipeline
 
 
@@ -15,9 +16,20 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+frontend_path = os.path.abspath("../frontend")
+app.mount("/static", StaticFiles(directory=frontend_path), name="static")
+
+
+@app.get("/")
+def read_index():
+    return FileResponse("../index.html")
+
 
 @app.post("/analyze")
-async def analyze(file: UploadFile = File(...), target: str = "target"):
-    df = pd.read_csv(file.file)
-    result = run_pipeline(df, target)
-    return result
+async def analyze(file: UploadFile = File(...), target: str = Form(...)):
+    try:
+        df = pd.read_csv(file.file, encoding='utf-8-sig')
+        result = run_pipeline(df, target)
+        return result
+    except Exception as e:
+        return {"error": str(e)}
