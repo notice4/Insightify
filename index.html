@@ -12,9 +12,16 @@
     <div class="container">
         <h1>Insightify</h1>
         <form id="uploadForm">
-            <input type="file" id="csvFile" accept=".csv" required>
-            <input type="text" id="target" placeholder="Target column name" required>
-            <button type="submit">Analyze</button>
+        <input type="file" id="csvFile" accept=".csv" required>
+        <input type="text" id="target" placeholder="Target column name" required>
+        
+        <select id="model" required>
+            <option value="" disabled selected>Select model</option>
+            <option value="correlation">Correlation</option>
+            <option value="regression">Regression</option>
+        </select>
+
+        <button type="submit">Analyze</button>
         </form>
         <pre id="result"></pre>
     </div>
